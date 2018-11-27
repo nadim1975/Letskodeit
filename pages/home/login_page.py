@@ -38,11 +38,7 @@ class LoginPage(BasePage):
         passwordField.clear()
 
     def verifyLoginPageTitle(self,title):
-        if title == self.getTitle():
-            return True
-        else:
-            return False
-
+        return self.verifyPageTitle(title)
 
 
     #Main Method

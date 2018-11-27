@@ -1,9 +1,7 @@
-from selenium import webdriver
 from pages.home.login_page import LoginPage
 import unittest
 from utilities.teststatus import TestStatus
 import pytest
-import time
 
 @pytest.mark.usefixtures("oneTimeSetUp","setUp")
 class LoginTests(unittest.TestCase):
@@ -16,7 +14,7 @@ class LoginTests(unittest.TestCase):
 
     @pytest.mark.run(order=2)
     def test_validlogin(self):
-        result1 = self.lp.verifyLoginPageTitle("Let's Kode It")
+        result1 = self.lp.verifyLoginPageTitle("Let'sKode It")
         self.ts.mark(result1,'Title is incorrect')
         self.lp.login('test@email.com','abcabc')
         result2 = self.lp.verifyLoginSuccessful()
