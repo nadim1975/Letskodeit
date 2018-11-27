@@ -1,9 +1,9 @@
-from base.selenium_driver import SeleniumDriver
 import utilities.custom_logger as cl
 import logging
+from base.basepage import BasePage
 
+class LoginPage(BasePage):
 
-class LoginPage(SeleniumDriver):
     log = cl.customLogger(logging.DEBUG)
     # constructor method to pass values
     def __init__(self,driver):

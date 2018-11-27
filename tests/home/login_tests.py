@@ -16,7 +16,7 @@ class LoginTests(unittest.TestCase):
 
     @pytest.mark.run(order=2)
     def test_validlogin(self):
-        result1 = self.lp.verifyLoginPageTitle("Let'sKode It")
+        result1 = self.lp.verifyLoginPageTitle("Let's Kode It")
         self.ts.mark(result1,'Title is incorrect')
         self.lp.login('test@email.com','abcabc')
         result2 = self.lp.verifyLoginSuccessful()
