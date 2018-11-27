@@ -1,5 +1,7 @@
 import pytest
 from selenium import webdriver
+from base.webdriverfactory import WebDriverFactory
+import os
 
 @pytest.yield_fixture()
 def setUp():
@@ -11,19 +13,10 @@ def setUp():
 @pytest.yield_fixture(scope="class")
 def oneTimeSetUp(request, browser):
     print("Running one time setUp")
-    if browser == 'firefox':
-        baseURL = "https://sso.teachable.com/secure/42299/users/sign_in?clean_login=true&reset_purchase_session=1"
-        driver = webdriver.Firefox()
-        driver.implicitly_wait(3)
-        driver.maximize_window()
-        driver.get(baseURL)
-        print("Running tests on FF")
-    else:
-        baseURL = "https://sso.teachable.com/secure/42299/users/sign_in?clean_login=true&reset_purchase_session=1"
-        driver = webdriver.Chrome()
-        driver.get(baseURL)
-        print("Running tests on chrome")
+    wdf = WebDriverFactory(browser)
+    driver = wdf.getWebDriverInstance()
 
+# return the driver
     if request.cls is not None:
         request.cls.driver = driver
 

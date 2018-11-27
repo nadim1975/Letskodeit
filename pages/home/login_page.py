@@ -37,6 +37,14 @@ class LoginPage(SeleniumDriver):
         passwordField = self.getElement(locator=self._password_field)
         passwordField.clear()
 
+    def verifyLoginPageTitle(self,title):
+        if title == self.getTitle():
+            return True
+        else:
+            return False
+
+
+
     #Main Method
     def login(self,email='',password=''):
         self.clearFields()
