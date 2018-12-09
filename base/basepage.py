@@ -2,13 +2,13 @@
 @package base
 
 Base Page class implementation
-It implements methods which are common to all the pages throughout the application
+It implements methods which are common to all the pages throughout the application such as verifyPageTitle
 
 This class needs to be inherited by all the page classes
 This should not be used by creating object instances
 
 Example:
-    Class LoginPage(BasePage)
+    class LoginPage(BasePage)
 """
 from base.selenium_driver import SeleniumDriver
 from traceback import print_stack

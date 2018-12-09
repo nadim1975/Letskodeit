@@ -2,7 +2,8 @@
 @package utilities
 
 Util class implementation
-All most commonly used utilities should be implemented in this class
+it has implementation of all methods which are commonly used across the framework, but they are not related to Selenium WebDriver APIs and Page Classes.
+
 
 Example:
     name = self.util.getUniqueName()

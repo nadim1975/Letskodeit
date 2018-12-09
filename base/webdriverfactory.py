@@ -14,7 +14,7 @@ import os
 
 class WebDriverFactory():
 
-    def __init__(self, browser):
+    def __init__(self, browser,environment):
         """
         Inits WebDriverFactory class
 
@@ -22,6 +22,7 @@ class WebDriverFactory():
             None
         """
         self.browser = browser
+        self.environment = environment
     """
         Set chrome driver and iexplorer environment based on OS
 
@@ -39,14 +40,14 @@ class WebDriverFactory():
         Returns:
             'WebDriver Instance'
         """
-        baseURL = "https://sso.teachable.com/secure/42299/users/sign_in?clean_login=true&reset_purchase_session=1"
-        if self.browser == "iexplorer":
+        #browser = self.browser.lower()
+        if self.browser == "ie":
             # Set ie driver
             driverLocation = "C:\\Users\\nhussein\\workspace\\libs\\IEDriverServer.exe"
             os.environ["webdriver.ie.driver"] = driverLocation
             driver = webdriver.Ie(driverLocation)
 
-        elif self.browser == "firefox":
+        elif self.browser == "ff":
             driver = webdriver.Firefox()
 
         elif self.browser == "chrome":
@@ -61,6 +62,19 @@ class WebDriverFactory():
         driver.implicitly_wait(3)
         # Maximize the window
         driver.maximize_window()
+
+        #selecting the URL based on the environment param
+        #env = self.environment.lower()
+        if self.environment == 'qa':
+            baseURL = "https://sso.teachable.com/secure/42299/users/sign_in?clean_login=true&reset_purchase_session=1"
+        elif self.environment == 'test':
+            baseURL = "https://sso.teachable.com/secure/42299/users/sign_in?clean_login=true&reset_purchase_session=1"
+        elif self.environment == 'psup1':
+            baseURL = "https://sso.teachable.com/secure/42299/users/sign_in?clean_login=true&reset_purchase_session=1"
+        else:
+            baseURL = ""
+
         # Loading browser with App URL
+
         driver.get(baseURL)
         return driver
