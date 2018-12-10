@@ -16,6 +16,7 @@ def oneTimeSetUp(request, browser,environment):
     driver = wdf.getWebDriverInstance()
     lp = LoginPage(driver)
     lp.login('test@email.com', 'abcabc')
+    #print("&&&&&&&&&&&  OneTime Setup Execution")
 
 # return the driver
     if request.cls is not None:

@@ -92,6 +92,6 @@ class RegisterCoursesPage(BasePage):
         self.isElementPresent(self._card_decline,'xpath')
 
     def verifyEnrollFailed(self):
-        result = self.isEnabled(locator=self._submit_enroll, locatorType="xpath",
+        result = self.isEnabled(locator=self._submit_enroll2, locatorType="xpath",
                                 info="Enroll Button")
         return not result
