@@ -9,7 +9,7 @@ class LoginTests(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
     def classSetup(self,oneTimeSetUp):
-        self.lp= LoginPage(self.driver)
+        self.lp = LoginPage(self.driver)
         self.ts = Status(self.driver)
 
 
