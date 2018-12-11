@@ -237,7 +237,7 @@ class SeleniumDriver():
             print_stack()
         return element
 
-    def webScroll(self, direction="up"):
+    def webScroll(self, direction="down"):
         """
         NEW METHOD
         """
